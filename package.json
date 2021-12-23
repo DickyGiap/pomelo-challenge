@@ -1,0 +1,20 @@
+{
+  "name": "pomelo-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/eslint-plugin": "^5.1.0",
+    "@hapi/hapi": "^20.2.1",
+    "@hapi/vision": "^6.1.0",
+    "dotenv": "^10.0.0",
+    "handlebars": "^4.7.7",
+    "nodemon": "^2.0.15"
+  }
+}
