@@ -2,8 +2,12 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
-const Path = require('path')
+const { buildTree } = require('./helpers')
 const Hapi = require('@hapi/hapi')
+const Inert = require('@hapi/inert');
+const Vision = require('@hapi/vision');
+const HapiSwagger = require('hapi-swagger');
+const Pack = require('./package');
 
 const init = async () => {
   const server = Hapi.server({
@@ -11,15 +15,30 @@ const init = async () => {
     host: 'localhost',
   })
 
+  const swaggerOptions = {
+    info: {
+      title: 'Test API Documentation',
+      version: Pack.version,
+    },
+  };
+
+  await server.register([
+    Inert,
+    Vision,
+    {
+      plugin: HapiSwagger,
+      options: swaggerOptions
+    }
+  ])
+
   server.route({
-    method: 'GET',
+    method: 'POST',
     path: '/',
     handler: function (request, h) {
-      return 'Hello World!'
+      if (!request.payload) return h.response('Bad request!').code(400)
+      return buildTree(request.payload)
     },
   })
-
-  await server.register(require('@hapi/vision'))
 
   server.views({
     engines: {
@@ -34,9 +53,14 @@ const init = async () => {
   server.route({
     method: 'GET',
     path: '/index',
-    handler: function (request, h) {
-      return h.view('index')
-    },
+    options: {
+      handler: function (request, h) {
+        return h.view('index')
+      },
+      description: 'API for building hiearchy',
+      notes: 'Return a hiearchy',
+      tags: ['api']
+    }
   })
 
   server.route({

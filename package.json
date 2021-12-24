@@ -11,10 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/eslint-plugin": "^5.1.0",
-    "@hapi/hapi": "^20.2.1",
+    "@hapi/hapi": "^20.0.0",
+    "@hapi/inert": "^6.0.4",
+    "@hapi/joi": "^17.1.1",
     "@hapi/vision": "^6.1.0",
     "dotenv": "^10.0.0",
     "handlebars": "^4.7.7",
+    "hapi-swagger": "^14.2.4",
+    "joi": "^17.5.0",
     "nodemon": "^2.0.15"
   }
 }
