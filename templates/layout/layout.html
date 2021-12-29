@@ -1,0 +1,67 @@
+<!Doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="./layout.css">
+</head>
+<body>
+<h1 class="title">Pomelo Challenge</h1>
+<h3 class="author">Author: DucGV</h3>
+<div class="">
+    <h4 class="total">{{total_count}} repository {{#if_eq total_count 1}} result {{else}} results {{/if_eq}}</h4>
+</div>
+<div class="container">
+    <ul class="repo-list">
+        {{#each items}}
+        <li class="repo-list-item hx_hit-repo d-flex flex-justify-start py-4 public source">
+            <div class="flex-shrink-0 mr-2">
+                <svg style="color: #6a737d" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                     data-view-component="true" class="octicon octicon-repo">
+                    <path fill-rule="evenodd"
+                          d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path>
+                </svg>
+            </div>
+
+            <div class="mt-n1 flex-auto">
+                <div class="d-flex">
+                    <div class="f4 text-normal">
+                        <a class="v-align-middle" href="{{this.url}}">{{this.full_name}}</a>
+                    </div>
+
+                </div>
+
+                <p class="mb-1">
+                    {{this.description}}
+                </p>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+
+<div class="paginate-container codesearch-pagination-container">
+    <div role="navigation" aria-label="Pagination" class="d-flex d-md-inline-block pagination" data-pjax="true">
+        <ul class="paginate">
+            {{#paginate pagination type="first"}}
+            <a href="?page={{n}}" {{#if disabled}} class="pageNumber disabled" {{/if}}>First</a>
+            {{/paginate}}
+
+            {{#paginate pagination type="previous"}}
+            <a href="?page={{n}}" {{#if disabled}} class="pageNumber disabled" {{/if}}>Prev</a>
+            {{/paginate}}
+            {{#paginate pagination type="middle" limit=pagination.pageLimit}}
+            <a href="?page={{n}}" {{#if active}} class="pageNumber active" {{/if}}>{{n}}</a>
+            {{/paginate}}
+
+            {{#paginate pagination type="next"}}
+            <a href="?page={{n}}" {{#if disabled}} class="pageNumber disabled" {{/if}}>Next</a>
+            {{/paginate}}
+
+            {{#paginate pagination type="last"}}
+            <a href="?page={{n}}" {{#if disabled}}class="pageNumber disabled" {{/if}}>Last</a>
+            {{/paginate}}
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

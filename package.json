@@ -1,0 +1,35 @@
+{
+  "name": "pomelo-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "p": "prettier --write **/*.js",
+    "start": "nodemon app.js",
+    "dev": "nodemon app.js",
+    "test": "lab --assert @hapi/code --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/eslint-plugin": "^5.1.0",
+    "@hapi/hapi": "^20.0.0",
+    "@hapi/inert": "^6.0.4",
+    "@hapi/joi": "^17.1.1",
+    "@hapi/vision": "^6.1.0",
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "handlebars": "^4.7.7",
+    "handlebars-paginate": "^0.1.0",
+    "hapi-swagger": "^14.2.4",
+    "joi": "^17.5.0",
+    "nodemon": "^2.0.15",
+    "parse-link-header": "^2.0.0"
+  },
+  "devDependencies": {
+    "@hapi/code": "^8.0.5",
+    "@hapi/lab": "^24.4.0",
+    "eslint": "^8.5.0",
+    "prettier": "^2.5.1"
+  }
+}

@@ -1,0 +1,153 @@
+.paginate-container {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.paginate {
+    margin: auto;
+}
+
+.pagination a, .pagination span, .pagination em {
+    display: inline-block;
+    min-width: 32px;
+    padding: 5px 10px;
+    font-style: normal;
+    line-height: 20px;
+    color: black;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: border-color .2s cubic-bezier(0.3, 0, 0.5, 1);
+    text-decoration: none;
+}
+
+.pagination .active, .pagination .active:hover, .pagination [aria-current]:not([aria-current=false]) {
+    color: #fff;
+    background-color: #377dcf;
+    border-color: transparent;
+}
+
+.repo-list {
+    position: relative;
+}
+ul, ol {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.repo-list-item {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    list-style: none;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.py-4 {
+    padding-top: 24px !important;
+    padding-left: 20px;
+}
+.flex-justify-start {
+    justify-content: flex-start !important;
+}
+
+.mr-2 {
+    margin-right: 8px !important;
+}
+.flex-shrink-0 {
+    flex-shrink: 0 !important;
+}
+
+.octicon {
+    display: inline-block;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor;
+}
+
+.mt-n1 {
+    margin-top: -4px !important;
+}
+
+.flex-auto {
+    flex: auto !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.text-normal {
+    font-weight: 400 !important;
+}
+
+.f4 {
+    font-size: 16px !important;
+}
+
+.v-align-middle {
+    vertical-align: middle !important;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+
+.mb-1 {
+    margin-bottom: 4px !important;
+}
+
+.repo-list-item {
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 6px #e3e1e163;
+    border-radius: 4px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.d-flex {
+    display: flex !important;
+}
+.pb-3 {
+    padding-bottom: 16px !important;
+}
+.position-relative {
+    position: relative !important;
+}
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.author,
+.title{
+    color: black;
+    text-align: center;
+}
+.total {
+    color: black;
+    text-align: right;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 15px;
+}
