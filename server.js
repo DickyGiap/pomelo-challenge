@@ -28,7 +28,7 @@ const server = Hapi.server({
   host: 'localhost'
 });
 
-async function liftOff() {
+(async () => {
   const swaggerOptions = {
     info: {
       title: 'Test API Documentation',
@@ -78,9 +78,7 @@ async function liftOff() {
           responses: {
             200: {
               description: 'Success',
-              schema: Joi.array()
-                .items(childSchema)
-                .label('Response')
+              schema: Joi.array().items(childSchema).label('Response')
             },
             400: {
               description: 'Bad request!'
@@ -102,8 +100,7 @@ async function liftOff() {
     },
     relativeTo: __dirname,
     path: './templates',
-    layoutPath: './templates/layout',
-    helpersPath: './templates/helpers'
+    layoutPath: './templates/layout'
   });
 
   server.route({
@@ -119,10 +116,17 @@ async function liftOff() {
           return 'Error';
         });
 
-      let links;
-      if (response !== 'Error') {
-        links = parse(response.headers.link);
+      if (response === 'Error') {
+        return h
+          .response({
+            statusCode: 500,
+            error: 'Internal Error',
+            message: 'Internal Error'
+          })
+          .code(500);
       }
+
+      const links = parse(response.headers.link);
 
       return h.view('layout/layout', {
         pagination: {
@@ -135,22 +139,10 @@ async function liftOff() {
       });
     }
   });
-}
 
-exports.init = async () => {
-  await liftOff();
-  await server.initialize();
-  return server;
-};
-
-exports.start = async () => {
-  await liftOff();
   await server.start();
-  console.log(`Server running at: ${server.info.uri}`);
-  return server;
-};
 
-process.on('unhandledRejection', (err) => {
-  console.log('1', err);
-  process.exit(1);
-});
+  console.log('Server running at:', server.info.uri);
+})();
+
+module.exports = server;

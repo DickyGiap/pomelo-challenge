@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "p": "prettier --write **/*.js",
-    "start": "nodemon app.js",
-    "dev": "nodemon app.js",
-    "test": "lab --assert @hapi/code --coverage"
+    "start": "nodemon server.js",
+    "dev": "nodemon server.js",
+    "test": "lab --assert @hapi/code --leaks --timeout 5000 --coverage"
   },
   "author": "",
   "license": "ISC",

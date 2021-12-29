@@ -3,19 +3,10 @@
 const Lab = require('@hapi/lab');
 const { expect } = require('@hapi/code');
 
-const { after, before, describe, it } = (exports.lab = Lab.script());
-const { init } = require('../server');
+const { describe, it } = (exports.lab = Lab.script());
 
-describe('POST /', () => {
-  let server;
-
-  before(async () => {
-    server = await init();
-  });
-
-  after(async () => {
-    await server.stop();
-  });
+describe('POST /api/part1', () => {
+  const server = require('../server');
 
   it('responds with 200', async () => {
     const res = await server.inject({
