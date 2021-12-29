@@ -38,26 +38,26 @@
     </ul>
 </div>
 
-<div class="paginate-container codesearch-pagination-container">
+<div class="paginate-container codesearch-pagination-container" id="pomelo-tag">
     <div role="navigation" aria-label="Pagination" class="d-flex d-md-inline-block pagination" data-pjax="true">
         <ul class="paginate">
             {{#paginate pagination type="first"}}
-            <a href="?page={{n}}" {{#if disabled}} class="pageNumber disabled" {{/if}}>First</a>
+            <a href="?page={{n}}#pomelo-tag" {{#if disabled}} class="pageNumber disabled" {{/if}}>First</a>
             {{/paginate}}
 
             {{#paginate pagination type="previous"}}
-            <a href="?page={{n}}" {{#if disabled}} class="pageNumber disabled" {{/if}}>Prev</a>
+            <a href="?page={{n}}#pomelo-tag" {{#if disabled}} class="pageNumber disabled" {{/if}}>Prev</a>
             {{/paginate}}
             {{#paginate pagination type="middle" limit=pagination.pageLimit}}
-            <a href="?page={{n}}" {{#if active}} class="pageNumber active" {{/if}}>{{n}}</a>
+            <a href="?page={{n}}#pomelo-tag" {{#if active}} class="pageNumber active" {{/if}}>{{n}}</a>
             {{/paginate}}
 
             {{#paginate pagination type="next"}}
-            <a href="?page={{n}}" {{#if disabled}} class="pageNumber disabled" {{/if}}>Next</a>
+            <a href="?page={{n}}#pomelo-tag" {{#if disabled}} class="pageNumber disabled" {{/if}}>Next</a>
             {{/paginate}}
 
             {{#paginate pagination type="last"}}
-            <a href="?page={{n}}" {{#if disabled}}class="pageNumber disabled" {{/if}}>Last</a>
+            <a href="?page={{n}}#pomelo-tag" {{#if disabled}}class="pageNumber disabled" {{/if}}>Last</a>
             {{/paginate}}
         </ul>
     </div>

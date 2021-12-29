@@ -128,7 +128,7 @@ const server = Hapi.server({
 
       const links = parse(response.headers.link);
 
-      return h.view('layout/layout', {
+      return h.view('layout/list-repository', {
         pagination: {
           page,
           pageCount: links.last?.page || page,
